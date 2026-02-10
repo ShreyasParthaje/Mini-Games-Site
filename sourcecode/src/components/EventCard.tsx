@@ -32,9 +32,6 @@ export default function EventCard({ event, onViewDetails }: EventCardProps) {
                 aria-label={`View details for ${event.title}`}
             >
                 View details
-                <span className="event-card__cta-arrow" aria-hidden="true">
-                    →
-                </span>
             </button>
         </article>
     );

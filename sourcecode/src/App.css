@@ -47,12 +47,24 @@
   position: relative;
 }
 
+.hero__logo-corner {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 120px;
+  /* Increased size */
+  height: auto;
+  z-index: 10;
+}
+
 .hero__title {
   font-size: 36px;
   font-weight: 700;
   color: #e0e0e0;
   margin-bottom: 16px;
   letter-spacing: -0.025em;
+  margin-top: 16px;
+  /* Added spacing since logo is gone from flow */
 }
 
 .hero__subtitle {
@@ -66,6 +78,12 @@
 @media (max-width: 767px) {
   .hero {
     padding: 40px 0;
+  }
+
+  .hero__logo-corner {
+    width: 80px;
+    top: 16px;
+    left: 16px;
   }
 
   .hero__title {
@@ -170,6 +188,7 @@
   flex-grow: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -209,15 +228,6 @@
 .event-card__cta:focus-visible {
   outline: 2px solid #7c5cff;
   outline-offset: 2px;
-}
-
-.event-card__cta-arrow {
-  font-size: 16px;
-  transition: transform 0.2s ease-in-out;
-}
-
-.event-card__cta:hover .event-card__cta-arrow {
-  transform: translateX(3px);
 }
 
 @media (max-width: 767px) {
@@ -477,4 +487,16 @@
 /* ---- BODY SCROLL LOCK (for modal) ---- */
 body.modal-open {
   overflow: hidden;
+}
+
+/* ---- MODAL SCROLLBAR HIDING ---- */
+.modal {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.modal::-webkit-scrollbar {
+  display: none;
 }

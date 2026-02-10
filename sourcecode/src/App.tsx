@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './App.css';
 
-import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import EventGrid from './components/EventGrid';
 import EventModal from './components/EventModal';
@@ -26,8 +25,6 @@ function App() {
       <a href="#events" className="skip-link">
         Skip to events
       </a>
-
-      <Header />
 
       <main>
         <HeroSection />
