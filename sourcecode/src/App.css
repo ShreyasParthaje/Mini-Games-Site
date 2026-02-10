@@ -42,19 +42,30 @@
 /* ---- HERO SECTION ---- */
 .hero {
   padding: 64px 0;
-  text-align: center;
   background-color: #0a0a0a;
   position: relative;
+  overflow: hidden;
 }
 
 .hero__logo-corner {
   position: absolute;
-  top: 24px;
-  left: 24px;
-  width: 120px;
-  /* Increased size */
+  top: 20px;
+  left: 20px;
+  width: 200px;
   height: auto;
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.hero .container {
+  position: relative;
   z-index: 10;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
 }
 
 .hero__title {
@@ -64,19 +75,23 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   letter-spacing: -0.02em;
-  margin-top: 16px;
   line-height: 1.2;
-  /* Added spacing since logo is gone from flow */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .hero__subtitle {
   font-size: 16px;
-  color: #a0a0a0;
-  max-width: 600px;
-  margin: 0 auto;
+  font-weight: 400;
   line-height: 1.6;
+  color: #e0e0e0;
+  max-width: 550px;
+  margin: 0 auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Optional: Animated gradient for enhanced visual effect */
@@ -101,24 +116,66 @@
   }
 }
 
-/* Mobile breakpoint */
+/* Mobile breakpoint (768px - 479px) */
 @media (max-width: 767px) {
   .hero {
     padding: 40px 0;
   }
 
   .hero__logo-corner {
-    width: 80px;
-    top: 16px;
-    left: 16px;
+    width: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+  }
+
+  .hero .container {
+    padding: 0 16px;
+    max-width: 90vw;
+    margin-top: 120px;
   }
 
   .hero__title {
     font-size: 36px;
+    margin-bottom: 16px;
   }
 
   .hero__subtitle {
     font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* Small mobile breakpoint (< 480px) */
+@media (max-width: 479px) {
+  .hero {
+    padding: 32px 0;
+  }
+
+  .hero__logo-corner {
+    width: 120px;
+    top: 10px;
+  }
+
+  .hero .container {
+    padding: 0 12px;
+    margin-top: 100px;
+  }
+
+  .hero__title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .hero__subtitle {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+}
+
+  .hero__subtitle {
+    font-size: 13px;
+    line-height: 1.4;
   }
 }
 
@@ -149,19 +206,17 @@
 
 /* ---- EVENT CARD ---- */
 .event-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: #1e1e1e;
   border: 1px solid #333333;
   border-radius: 8px;
   padding: 24px;
-  display: flex;
-  flex-direction: column;
   transition:
     transform 0.2s ease-in-out,
     box-shadow 0.2s ease-in-out;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  position: relative;
-  overflow: hidden;
-  min-height: 400px;
 }
 
 .event-card:hover {
@@ -170,6 +225,7 @@
 }
 
 .event-card__title {
+  flex-shrink: 0;
   font-size: 24px;
   font-weight: 600;
   color: #e0e0e0;
@@ -177,13 +233,19 @@
   letter-spacing: -0.01em;
 }
 
+.event-card__image-wrapper {
+  flex-shrink: 0;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  margin-bottom: 16px;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #0f0f0f;
+}
+
 .event-card__image {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  background-color: #0f0f0f;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  overflow: hidden;
+  height: 100%;
   position: relative;
 }
 
@@ -191,11 +253,18 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.3s ease-in-out;
 }
 
 .event-card:hover .event-card__image img {
   transform: scale(1.03);
+}
+
+.event-card__content {
+  flex-grow: 1;
+  overflow: hidden;
+  margin-bottom: 16px;
 }
 
 .event-card__about-label {
@@ -205,14 +274,13 @@
   letter-spacing: 0.08em;
   color: #7c5cff;
   margin-bottom: 8px;
+  display: block;
 }
 
 .event-card__description {
   font-size: 14px;
   color: #a0a0a0;
   line-height: 1.6;
-  margin-bottom: 24px;
-  flex-grow: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
@@ -221,6 +289,8 @@
 }
 
 .event-card__cta {
+  flex-shrink: 0;
+  margin-top: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -260,7 +330,6 @@
 @media (max-width: 767px) {
   .event-card {
     padding: 20px;
-    min-height: auto;
   }
 
   .event-card__title {

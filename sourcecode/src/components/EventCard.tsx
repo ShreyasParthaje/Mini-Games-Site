@@ -11,20 +11,24 @@ export default function EventCard({ event, onViewDetails }: EventCardProps) {
         <article className="event-card">
             <h2 className="event-card__title">{event.title}</h2>
 
-            <div className="event-card__image">
-                {event.image ? (
-                    <img
-                        src={event.image}
-                        alt={`Visual for ${event.title}`}
-                        loading="lazy"
-                    />
-                ) : (
-                    <EventIllustration eventId={event.id} title={event.title} />
-                )}
+            <div className="event-card__image-wrapper">
+                <div className="event-card__image">
+                    {event.image ? (
+                        <img
+                            src={event.image}
+                            alt={`Visual for ${event.title}`}
+                            loading="lazy"
+                        />
+                    ) : (
+                        <EventIllustration eventId={event.id} title={event.title} />
+                    )}
+                </div>
             </div>
 
-            <span className="event-card__about-label">About the event</span>
-            <p className="event-card__description">{event.brief}</p>
+            <div className="event-card__content">
+                <span className="event-card__about-label">About the event</span>
+                <p className="event-card__description">{event.brief}</p>
+            </div>
 
             <button
                 className="event-card__cta"

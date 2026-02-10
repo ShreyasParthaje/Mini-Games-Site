@@ -114,6 +114,89 @@
 - Box-shadow: 0 2px 8px rgba(0,0,0,0.3)
 - Hover state: subtle lift (0 4px 12px rgba(0,0,0,0.5))
 
+**Image Container (Responsive Positioning)**
+- Use `<div>` wrapper with intrinsic ratio technique
+- Aspect ratio: 16:9 maintained at all breakpoints
+- CSS aspect-ratio property: `aspect-ratio: 16 / 9`
+- Container width: 100% of card width minus padding
+- Image element: `width: 100%; height: 100%; object-fit: cover; display: block`
+- Height: Automatically calculated based on 16:9 ratio
+- Allows flexible resizing without distortion
+- Prevents layout shift on window resize
+
+**Intrinsic Ratio CSS Implementation:**
+```css
+.event-card__image-wrapper {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #0f0f0f;
+}
+
+.event-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+```
+
+**Text Overflow Prevention**
+- Description text: Maximum 2-3 lines enforced
+- Line clamp CSS: `display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;`
+- Alternative: Set fixed line-height with max-height calculation
+- All text content contained within card boundaries
+- Use flexbox on card to prevent text pushing into image area
+- Card structure: `display: flex; flex-direction: column;`
+- Image wrapper: `flex-shrink: 0;` to prevent compression
+- Content section: `overflow: hidden;` to contain overflowing text
+- Button: Always positioned at bottom with `margin-top: auto;`
+
+**Flexbox Card Layout CSS:**
+```css
+.event-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #1e1e1e;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.event-card__title {
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+.event-card__image-wrapper {
+  flex-shrink: 0;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.event-card__content {
+  flex-grow: 1;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.event-card__button {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+```
+
+**Mobile Responsive Adjustments:**
+- Padding: 20px (reduced from 24px)
+- Gap adjustments: Maintained proportionally
+- Image aspect ratio: Same 16:9 maintained
+- Text clamp: Same 2-3 lines applied
+- Flexbox layout: Automatically adapts to narrower viewport
+
 ---
 
 ## 4. Typography System
