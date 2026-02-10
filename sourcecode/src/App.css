@@ -96,9 +96,12 @@
 
 /* Optional: Animated gradient for enhanced visual effect */
 @keyframes gradientShift {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -166,12 +169,6 @@
     font-size: 28px;
     margin-bottom: 12px;
   }
-
-  .hero__subtitle {
-    font-size: 13px;
-    line-height: 1.4;
-  }
-}
 
   .hero__subtitle {
     font-size: 13px;
