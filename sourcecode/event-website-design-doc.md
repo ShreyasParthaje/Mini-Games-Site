@@ -33,8 +33,7 @@
 ```
 ┌─────────────────────────────────────────────────┐
 │  HEADER                                         │
-│  - Logo/Site Title (left)                       │
-│  - Navigation (right, optional)                 │
+│  - Logo/Site Title (centered or left)           │
 └─────────────────────────────────────────────────┘
 ┌─────────────────────────────────────────────────┐
 │  HERO SECTION                                   │
@@ -54,7 +53,7 @@
 └─────────────────────────────────────────────────┘
 ┌─────────────────────────────────────────────────┐
 │  FOOTER                                         │
-│  - Copyright, links, contact                    │
+│  - Copyright only                               │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -88,7 +87,7 @@
 │                                 │
 │  Image/Visual Area              │
 │  (16:9 aspect ratio)            │
-│  Background: #2a2a2a            │
+│  Background: #1a1a1a            │
 │                                 │
 ├─────────────────────────────────┤
 │  About the event                │
@@ -110,10 +109,10 @@
 - Card border-radius: 8px
 
 **Visual Treatment:**
-- Background: #f8f9fa (light gray) or white
-- Border: 1px solid #e0e0e0
-- Box-shadow: 0 2px 8px rgba(0,0,0,0.08)
-- Hover state: subtle lift (0 4px 12px rgba(0,0,0,0.12))
+- Background: #1e1e1e (dark gray)
+- Border: 1px solid #333333
+- Box-shadow: 0 2px 8px rgba(0,0,0,0.3)
+- Hover state: subtle lift (0 4px 12px rgba(0,0,0,0.5))
 
 ---
 
@@ -138,9 +137,9 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
 *Desktop/Mobile sizes
 
 ### Text Colors
-- Primary text: #1a1a1a
-- Secondary text: #666666
-- Tertiary text: #999999
+- Primary text: #e0e0e0
+- Secondary text: #a0a0a0
+- Tertiary text: #666666
 
 ---
 
@@ -148,26 +147,27 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
 
 ### Primary Colors
 ```css
---primary-600: #5b3fd1      /* Main brand color (buttons, accents) */
---primary-700: #4a32a8      /* Hover states */
---primary-800: #3a287d      /* Active states */
+--primary-600: #7c5cff      /* Main brand color (buttons, accents) */
+--primary-700: #6b4ce6      /* Hover states */
+--primary-800: #5a3ccc      /* Active states */
 ```
 
-### Neutral Colors
+### Neutral Colors (Dark Theme)
 ```css
---neutral-50: #ffffff       /* Card backgrounds */
---neutral-100: #f8f9fa      /* Page background */
---neutral-200: #e9ecef      /* Borders, dividers */
---neutral-300: #dee2e6      /* Subtle borders */
---neutral-700: #495057      /* Body text */
---neutral-900: #212529      /* Headings */
+--neutral-50: #0a0a0a       /* Page background (darkest) */
+--neutral-100: #1a1a1a      /* Card backgrounds */
+--neutral-200: #2a2a2a      /* Subtle backgrounds */
+--neutral-300: #3a3a3a      /* Borders, dividers */
+--neutral-700: #a0a0a0      /* Secondary text */
+--neutral-900: #e0e0e0      /* Primary text (lightest) */
 ```
 
 ### Background Strategy
-- Page background: #f5f5f7 (light neutral)
-- Card background: #ffffff
-- Image placeholder: #2a2a2a (dark neutral)
-- Header/Footer: #1a1a1a or #2d3748
+- Page background: #0a0a0a (dark black)
+- Card background: #1a1a1a (dark gray)
+- Image placeholder: #0f0f0f (very dark)
+- Header: #1a1a1a
+- Footer: #0a0a0a
 
 ---
 
@@ -202,7 +202,7 @@ Using 4px base unit:
 
 **Default State:**
 ```css
-background: #5b3fd1
+background: #7c5cff
 color: #ffffff
 padding: 12px 24px
 border-radius: 6px
@@ -214,20 +214,20 @@ min-height: 44px
 
 **Hover State:**
 ```css
-background: #4a32a8
+background: #6b4ce6
 transform: translateY(-1px)
-box-shadow: 0 4px 8px rgba(91, 63, 209, 0.25)
+box-shadow: 0 4px 8px rgba(123, 92, 255, 0.35)
 ```
 
 **Active State:**
 ```css
-background: #3a287d
+background: #5a3ccc
 transform: translateY(0)
 ```
 
 **Focus State:**
 ```css
-outline: 2px solid #5b3fd1
+outline: 2px solid #7c5cff
 outline-offset: 2px
 ```
 
@@ -273,11 +273,11 @@ outline-offset: 2px
 
 ## 9. Image Specifications
 
-### Event Card Images
+**Event Card Images**
 - Aspect ratio: 16:9
 - Recommended size: 640x360px (for retina: 1280x720px)
 - Format: WebP with JPEG fallback
-- Placeholder color: #2a2a2a
+- Placeholder color: #0f0f0f
 - Object-fit: cover
 - Border-radius: 4px (within card)
 
@@ -317,23 +317,17 @@ outline-offset: 2px
 ### Structure
 ```
 ┌──────────────────────────────────────┐
-│  [Logo/Title]          [Navigation]  │
-│  16px/20px padding                    │
+│     [Logo/Title]                     │
+│     16px/20px padding                 │
 └──────────────────────────────────────┘
 ```
 
 ### Specifications
 - Height: 64px (desktop), 56px (mobile)
-- Background: #1a1a1a or white with border
-- Logo/Title: 20px font size, 600 weight
+- Background: #1a1a1a
+- Logo/Title: 20px font size, 600 weight, #e0e0e0 color
 - Position: Static (scrolls with page) or sticky
-- Border-bottom: 1px solid #e0e0e0 (if white bg)
-
-### Optional Navigation
-- Links: 15px, 500 weight
-- Spacing: 24px between items
-- Hover: Underline or color change
-- Mobile: Hamburger menu at <768px
+- Border-bottom: 1px solid #333333
 
 ---
 
@@ -343,17 +337,16 @@ outline-offset: 2px
 ```
 ┌────────────────────────────────────┐
 │  Copyright © 2026 Company Name     │
-│  [Links] | [Links] | [Links]       │
 │  Padding: 32px vertical            │
 └────────────────────────────────────┘
 ```
 
 ### Specifications
-- Background: #1a1a1a
-- Text color: #ffffff (primary), #a0a0a0 (secondary)
+- Background: #0a0a0a
+- Text color: #a0a0a0
 - Font size: 14px
 - Centered text alignment
-- Links: Underline on hover
+- Border-top: 1px solid #333333
 
 ---
 
@@ -374,10 +367,11 @@ outline-offset: 2px
 ```
 
 ### Specifications
-- Background: Linear gradient or solid color
+- Background: Linear gradient or solid dark color (#0a0a0a)
 - Text alignment: Center
 - Max-width for text: 600px
 - Padding: 64px top/bottom (desktop), 40px (mobile)
+- Text color: #e0e0e0
 
 ---
 
@@ -476,13 +470,13 @@ transition: all 0.2s ease-in-out;
 
 **Card hover:**
 - Transform: translateY(-4px)
-- Shadow increase
+- Shadow increase (darker shadow for dark theme)
 - No color change
 
 **Button hover:**
 - Background color change
 - Subtle lift (1px)
-- Shadow addition
+- Shadow addition (purple-tinted)
 
 ### Loading States
 - Skeleton screens for cards
@@ -538,7 +532,6 @@ transition: all 0.2s ease-in-out;
 <header>
   <div class="container">
     <h1>Logo/Title</h1>
-    <nav><!-- Optional --></nav>
   </div>
 </header>
 
@@ -667,13 +660,16 @@ transition: all 0.2s ease-in-out;
 
 ```css
 :root {
-  /* Colors */
-  --primary-600: #5b3fd1;
-  --primary-700: #4a32a8;
-  --neutral-50: #ffffff;
-  --neutral-100: #f8f9fa;
-  --neutral-700: #495057;
-  --neutral-900: #212529;
+  /* Colors - Dark Theme */
+  --primary-600: #7c5cff;
+  --primary-700: #6b4ce6;
+  --primary-800: #5a3ccc;
+  --neutral-50: #0a0a0a;
+  --neutral-100: #1a1a1a;
+  --neutral-200: #2a2a2a;
+  --neutral-300: #3a3a3a;
+  --neutral-700: #a0a0a0;
+  --neutral-900: #e0e0e0;
   
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -696,13 +692,13 @@ transition: all 0.2s ease-in-out;
   
   /* Effects */
   --transition: all 0.2s ease-in-out;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
 }
 ```
 
 ---
 
-**Document Version:** 1.0  
+**Document Version:** 1.1  
 **Last Updated:** February 2026  
 **Status:** Ready for development

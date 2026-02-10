@@ -93,7 +93,6 @@ export default function EventModal({ event, onClose }: EventModalProps) {
                         <h2 className="modal__title">{event.title}</h2>
 
                         <div className="modal__section">
-                            <h3 className="modal__section-title">Overview</h3>
                             <p className="modal__text">{event.detailed}</p>
                         </div>
 
