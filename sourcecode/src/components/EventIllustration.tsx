@@ -60,6 +60,12 @@ function getIllustration(eventId: number) {
         case 1: // Neural Network Human Chain
             return (
                 <g>
+                    <defs>
+                        <radialGradient id="node-glow" cx="0.5" cy="0.5" r="0.5">
+                            <stop offset="0%" stopColor="#7c5ce7" stopOpacity="0.8" />
+                            <stop offset="100%" stopColor="#7c5ce7" stopOpacity="0" />
+                        </radialGradient>
+                    </defs>
                     {/* Neural network nodes and connections */}
                     {/* Layer 1 */}
                     <circle cx="140" cy="120" r="18" fill="#5b3fd1" opacity="0.8" />
@@ -74,6 +80,8 @@ function getIllustration(eventId: number) {
                     <circle cx="420" cy="240" r="20" fill="#5b3fd1" opacity="0.8" />
                     {/* Output */}
                     <circle cx="540" cy="180" r="24" fill="#7c5ce7" opacity="0.9" />
+                    <circle cx="540" cy="180" r="35" fill="url(#node-glow)" />
+
                     {/* Connections */}
                     {[120, 180, 240].map(y1 =>
                         [140, 220].map(y2 => (
@@ -89,7 +97,7 @@ function getIllustration(eventId: number) {
                         <line key={`3-${y}`} x1="440" y1={y} x2="516" y2={180} stroke="#7c5ce7" strokeWidth="1.5" opacity="0.25" />
                     ))}
                     {/* Labels */}
-                    <text x="140" y="124" textAnchor="middle" fill="#fff" fontSize="11" fontWeight="600">IN</text>
+                    <text x="140" y="124" textAnchor="middle" fill="#fff" fontSize="11" fontWeight="600">IN (3)</text>
                     <text x="540" y="184" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="600">OUT</text>
                 </g>
             );
@@ -97,155 +105,257 @@ function getIllustration(eventId: number) {
         case 2: // Optimizer's Dilemma
             return (
                 <g>
-                    {/* Loss landscape curve */}
-                    <path
-                        d="M 80 280 Q 160 120, 240 220 Q 300 280, 360 160 Q 420 60, 480 200 Q 520 280, 560 240"
-                        stroke="#7c5ce7"
-                        strokeWidth="3"
-                        fill="none"
-                        opacity="0.7"
+                    {/* Card Table vibe */}
+                    <ellipse cx="320" cy="220" rx="200" ry="100" fill="#1a1a2e" stroke="#2d2b55" strokeWidth="4" />
+
+                    {/* Cards */}
+                    <g transform="translate(280, 180) rotate(-15)">
+                        <rect width="60" height="90" rx="4" fill="#eee" />
+                        <text x="30" y="55" textAnchor="middle" fontSize="24" fill="#d00">A♥</text>
+                    </g>
+                    <g transform="translate(320, 175) rotate(5)">
+                        <rect width="60" height="90" rx="4" fill="#eee" />
+                        <text x="30" y="55" textAnchor="middle" fontSize="24" fill="#000">K♠</text>
+                    </g>
+                    <g transform="translate(360, 190) rotate(20)">
+                        <rect width="60" height="90" rx="4" fill="#eee" />
+                        <text x="30" y="55" textAnchor="middle" fontSize="24" fill="#d00">7♦</text>
+                    </g>
+
+                    {/* Hidden cards (backs) */}
+                    <g transform="translate(200, 220) rotate(-60)">
+                        <rect width="60" height="90" rx="4" fill="#2d2b55" stroke="#4a47a3" strokeWidth="2" />
+                        <path d="M10,10 L50,80 M50,10 L10,80" stroke="#4a47a3" strokeWidth="2" opacity="0.5" />
+                    </g>
+                    <g transform="translate(440, 220) rotate(60)">
+                        <rect width="60" height="90" rx="4" fill="#2d2b55" stroke="#4a47a3" strokeWidth="2" />
+                        <path d="M10,10 L50,80 M50,10 L10,80" stroke="#4a47a3" strokeWidth="2" opacity="0.5" />
+                    </g>
+
+                    <text x="320" y="140" textAnchor="middle" fill="#7c5ce7" fontSize="18" fontWeight="700" letterSpacing="2">TRADE?</text>
+                </g>
+            );
+
+        case 3: // Feature Extraction Pictionary
+            return (
+                <g>
+                    {/* Blueprint grid background */}
+                    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#2d2b55" strokeWidth="1" />
+                    </pattern>
+                    <rect x="140" y="60" width="360" height="240" fill="url(#grid)" opacity="0.5" />
+
+                    {/* Geometric Elephant Construction */}
+                    {/* Body */}
+                    <rect x="240" y="160" width="120" height="100" stroke="#0f0" strokeWidth="2" fill="none" // Green for recognized
+                        strokeDasharray="5,5"
                     />
-                    {/* Ball at local minimum */}
-                    <circle cx="240" cy="220" r="10" fill="#ff6b6b" opacity="0.8" />
-                    <text x="240" y="250" textAnchor="middle" fill="#ff6b6b" fontSize="10" opacity="0.8">Local min</text>
-                    {/* Ball at global minimum */}
-                    <circle cx="420" cy="60" r="10" fill="#51cf66" opacity="0.9" />
-                    <text x="420" y="45" textAnchor="middle" fill="#51cf66" fontSize="10" opacity="0.9">Global min</text>
-                    {/* Gradient arrows */}
-                    <path d="M 300 260 L 320 230" stroke="#ffd43b" strokeWidth="2" opacity="0.6" markerEnd="url(#arrow)" />
-                    <text x="320" y="178" textAnchor="middle" fill="#fff" fontSize="22" fontWeight="700" opacity="0.15">∇</text>
+                    {/* Head */}
+                    <circle cx="220" cy="180" r="50" stroke="#0f0" strokeWidth="2" fill="none" />
+                    {/* Trunk */}
+                    <path d="M 180 200 L 160 260 L 180 260" stroke="#0f0" strokeWidth="2" fill="none" />
+                    {/* Legs */}
+                    <rect x="250" y="260" width="20" height="40" stroke="#0f0" strokeWidth="2" fill="none" />
+                    <rect x="330" y="260" width="20" height="40" stroke="#0f0" strokeWidth="2" fill="none" />
+
+                    {/* Analyzing Box */}
+                    <rect x="150" y="120" width="260" height="200" stroke="#7c5ce7" strokeWidth="2" fill="none" />
+                    <text x="160" y="140" fill="#7c5ce7" fontSize="14" fontFamily="monospace">DETECTED: ELEPHANT (94%)</text>
+
+                    {/* Primitives Label */}
+                    <text x="320" y="320" textAnchor="middle" fill="#aaa" fontSize="12">Primitives: 2 Rects, 1 Circle, 1 Path</text>
                 </g>
             );
 
-        case 3: // Prompt Engineering
+        case 4: // Hallucination Detective
             return (
                 <g>
-                    {/* Chat bubbles */}
-                    <rect x="120" y="80" width="200" height="50" rx="8" fill="#5b3fd1" opacity="0.6" />
-                    <text x="145" y="110" fill="#fff" fontSize="13" opacity="0.9">Write a poem about AI...</text>
+                    {/* Text Document Layer */}
+                    <rect x="180" y="60" width="280" height="240" fill="#fff" opacity="0.1" rx="4" />
 
-                    <rect x="320" y="150" width="200" height="50" rx="8" fill="#3d3d4a" opacity="0.7" />
-                    <text x="345" y="180" fill="#a0aab4" fontSize="13" opacity="0.9">In circuits deep and...</text>
+                    {/* Text Lines */}
+                    {/* Line 1 (Real) */}
+                    <rect x="200" y="90" width="240" height="10" rx="2" fill="#5b3fd1" opacity="0.7" />
+                    {/* Line 2 (Real) */}
+                    <rect x="200" y="115" width="200" height="10" rx="2" fill="#5b3fd1" opacity="0.7" />
+                    {/* Line 3 (Fake/Hallucination) */}
+                    <rect x="200" y="140" width="220" height="10" rx="2" fill="#ff4757" opacity="0.8" />
+                    <text x="435" y="149" fill="#ff4757" fontSize="14" fontWeight="bold">!</text>
+                    {/* Line 4 (Real) */}
+                    <rect x="200" y="165" width="230" height="10" rx="2" fill="#5b3fd1" opacity="0.7" />
+                    {/* Line 5 (Fake) */}
+                    <rect x="200" y="190" width="180" height="10" rx="2" fill="#ff4757" opacity="0.8" />
+                    <text x="395" y="199" fill="#ff4757" fontSize="14" fontWeight="bold">!</text>
 
-                    <rect x="140" y="220" width="220" height="50" rx="8" fill="#5b3fd1" opacity="0.6" />
-                    <text x="165" y="250" fill="#fff" fontSize="13" opacity="0.9">Make it more technical</text>
-
-                    {/* Cursor blink */}
-                    <rect x="365" y="222" width="2" height="20" fill="#7c5ce7" opacity="0.8">
-                        <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.2s" repeatCount="indefinite" />
-                    </rect>
+                    {/* Magnifying Glass */}
+                    <g transform="translate(280, 120) rotate(-20)">
+                        <circle cx="0" cy="0" r="50" stroke="#ffd43b" strokeWidth="4" fill="#ffffff" fillOpacity="0.1" />
+                        <rect x="-10" y="50" width="20" height="60" rx="5" fill="#333" stroke="#555" />
+                        {/* Reflection */}
+                        <path d="M -30 -20 Q -10 -40, 20 -20" stroke="#fff" strokeWidth="3" opacity="0.3" fill="none" />
+                    </g>
                 </g>
             );
 
-        case 4: // Data Detective
+        case 5: // Badly Explained Concepts
             return (
                 <g>
-                    {/* Bar chart */}
-                    {[
-                        { x: 160, h: 100, color: '#5b3fd1' },
-                        { x: 210, h: 160, color: '#5b3fd1' },
-                        { x: 260, h: 80, color: '#5b3fd1' },
-                        { x: 310, h: 200, color: '#ff6b6b' }, /* anomaly */
-                        { x: 360, h: 120, color: '#5b3fd1' },
-                        { x: 410, h: 90, color: '#5b3fd1' },
-                        { x: 460, h: 140, color: '#5b3fd1' },
-                    ].map((bar, i) => (
-                        <rect
-                            key={i}
-                            x={bar.x}
-                            y={280 - bar.h}
-                            width="30"
-                            height={bar.h}
-                            rx="4"
-                            fill={bar.color}
-                            opacity="0.6"
-                        />
-                    ))}
-                    {/* Magnifying glass over anomaly */}
-                    <circle cx="325" cy="100" r="30" stroke="#ffd43b" strokeWidth="2.5" fill="none" opacity="0.6" />
-                    <line x1="347" y1="122" x2="370" y2="145" stroke="#ffd43b" strokeWidth="2.5" opacity="0.6" />
-                    {/* Axis */}
-                    <line x1="140" y1="280" x2="500" y2="280" stroke="#fff" strokeWidth="1" opacity="0.15" />
+                    {/* Blue-print style Pizza */}
+                    <g transform="translate(320, 180)">
+                        {/* Pizza Outline */}
+                        <path d="M 0 -100 L 70 80 L -70 80 Z" stroke="#00d2d3" strokeWidth="2" fill="none" />
+                        {/* Crust */}
+                        <path d="M -70 80 Q 0 100, 70 80" stroke="#00d2d3" strokeWidth="2" fill="none" strokeDasharray="4,4" />
+
+                        {/* Pepperoni circles */}
+                        <circle cx="0" cy="0" r="10" stroke="#00d2d3" strokeWidth="1" fill="none" />
+                        <circle cx="-20" cy="40" r="10" stroke="#00d2d3" strokeWidth="1" fill="none" />
+                        <circle cx="30" cy="50" r="10" stroke="#00d2d3" strokeWidth="1" fill="none" />
+
+                        {/* Technical Callouts */}
+                        <line x1="40" y1="0" x2="100" y2="-20" stroke="#fff" strokeWidth="1" opacity="0.5" />
+                        <text x="105" y="-20" fill="#00d2d3" fontSize="10" fontFamily="monospace">Substrate (Dough)</text>
+
+                        <line x1="-30" y1="40" x2="-90" y2="40" stroke="#fff" strokeWidth="1" opacity="0.5" />
+                        <text x="-160" y="44" fill="#00d2d3" fontSize="10" fontFamily="monospace">Lipid Discs</text>
+                    </g>
+
+                    <text x="320" y="320" textAnchor="middle" fill="#fff" fontSize="14" fontFamily="monospace" opacity="0.8">
+                        FIG 1.1: Circular Thermal Unit
+                    </text>
                 </g>
             );
 
-        case 5: // AI Art Gallery
+        case 6: // Bot or Not
             return (
                 <g>
-                    {/* Three framed "paintings" */}
-                    <rect x="100" y="100" width="120" height="150" rx="4" stroke="#7c5ce7" strokeWidth="2" fill="none" opacity="0.4" />
-                    <rect x="108" y="108" width="104" height="120" rx="2" fill="#5b3fd1" opacity="0.15" />
-                    <circle cx="160" cy="155" r="25" fill="#7c5ce7" opacity="0.3" />
-                    <rect x="130" y="170" width="60" height="30" rx="4" fill="#5b3fd1" opacity="0.2" />
+                    {/* Split Face Composition */}
+                    <line x1="320" y1="40" x2="320" y2="320" stroke="#7c5ce7" strokeWidth="2" strokeDasharray="10,10" opacity="0.5" />
 
-                    <rect x="260" y="80" width="120" height="170" rx="4" stroke="#7c5ce7" strokeWidth="2" fill="none" opacity="0.4" />
-                    <rect x="268" y="88" width="104" height="140" rx="2" fill="#5b3fd1" opacity="0.15" />
-                    <polygon points="320,110 350,180 290,180" fill="#7c5ce7" opacity="0.3" />
+                    {/* Left Side: Human Eye */}
+                    <g transform="translate(220, 180)">
+                        <path d="M -60 0 Q 0 -50, 60 0 Q 0 50, -60 0" stroke="#51cf66" strokeWidth="2" fill="none" />
+                        <circle cx="0" cy="0" r="20" fill="#51cf66" opacity="0.3" />
+                        <circle cx="0" cy="0" r="8" fill="#fff" />
+                        <text x="0" y="80" textAnchor="middle" fill="#51cf66" fontSize="14" fontWeight="bold">HUMAN</text>
+                    </g>
 
-                    <rect x="420" y="100" width="120" height="150" rx="4" stroke="#7c5ce7" strokeWidth="2" fill="none" opacity="0.4" />
-                    <rect x="428" y="108" width="104" height="120" rx="2" fill="#5b3fd1" opacity="0.15" />
-                    <rect x="445" y="130" width="70" height="70" rx="35" fill="#7c5ce7" opacity="0.25" />
+                    {/* Right Side: Camera Lens/Robot */}
+                    <g transform="translate(420, 180)">
+                        <circle cx="0" cy="0" r="35" stroke="#ff4757" strokeWidth="3" fill="#333" />
+                        <circle cx="0" cy="0" r="25" stroke="#ff4757" strokeWidth="1" fill="#111" />
+                        <circle cx="0" cy="0" r="10" fill="#f00" opacity="0.8">
+                            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite" />
+                        </circle>
+                        {/* Scan lines */}
+                        <line x1="-40" y1="-40" x2="40" y2="-40" stroke="#ff4757" strokeWidth="1" opacity="0.3" />
+                        <line x1="-40" y1="40" x2="40" y2="40" stroke="#ff4757" strokeWidth="1" opacity="0.3" />
 
-                    {/* Stars / sparkles */}
-                    <text x="240" y="100" fill="#ffd43b" fontSize="16" opacity="0.5">✦</text>
-                    <text x="400" y="120" fill="#ffd43b" fontSize="12" opacity="0.4">✦</text>
+                        <text x="0" y="80" textAnchor="middle" fill="#ff4757" fontSize="14" fontWeight="bold">BOT</text>
+                    </g>
                 </g>
             );
 
-        case 6: // Model Showdown
+        case 7: // AI Gartic Phone
             return (
                 <g>
-                    {/* Two model boxes competing */}
-                    <rect x="120" y="120" width="160" height="120" rx="8" fill="#5b3fd1" opacity="0.3" />
-                    <text x="200" y="170" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="600" opacity="0.7">Model A</text>
-                    <text x="200" y="195" textAnchor="middle" fill="#51cf66" fontSize="20" fontWeight="700" opacity="0.8">92.4%</text>
+                    {/* Sequence of morphing icons */}
+                    {/* Step 1: Cat */}
+                    <g transform="translate(140, 180)">
+                        <path d="M -20 10 L -25 -10 L -10 0 L 10 0 L 25 -10 L 20 10 Z" fill="#fff" opacity="0.8" />
+                        <circle cx="0" cy="15" r="15" fill="#fff" opacity="0.8" />
+                        <text x="0" y="50" textAnchor="middle" fill="#aaa" fontSize="10">PROMPT</text>
+                    </g>
 
-                    <rect x="360" y="120" width="160" height="120" rx="8" fill="#5b3fd1" opacity="0.3" />
-                    <text x="440" y="170" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="600" opacity="0.7">Model B</text>
-                    <text x="440" y="195" textAnchor="middle" fill="#ff6b6b" fontSize="20" fontWeight="700" opacity="0.8">87.1%</text>
+                    {/* Arrow */}
+                    <path d="M 180 180 L 210 180" stroke="#7c5ce7" strokeWidth="2" markerEnd="url(#arrow)" opacity="0.5" />
 
-                    {/* VS badge */}
-                    <circle cx="320" cy="180" r="24" fill="#7c5ce7" opacity="0.8" />
-                    <text x="320" y="186" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="700">VS</text>
+                    {/* Step 2: Weird Cat */}
+                    <g transform="translate(250, 180)">
+                        <path d="M -20 10 L -25 -15 L -5 -5 L 15 -5 L 30 -15 L 20 10 Z" fill="#a29bfe" opacity="0.8" />
+                        <rect x="-15" y="5" width="30" height="25" rx="5" fill="#a29bfe" opacity="0.8" />
+                        <text x="0" y="50" textAnchor="middle" fill="#aaa" fontSize="10">GEN 1</text>
+                    </g>
 
-                    {/* Trophy */}
-                    <text x="200" y="270" textAnchor="middle" fill="#ffd43b" fontSize="24" opacity="0.6">🏆</text>
+                    {/* Arrow */}
+                    <path d="M 290 180 L 320 180" stroke="#7c5ce7" strokeWidth="2" markerEnd="url(#arrow)" opacity="0.5" />
+
+                    {/* Step 3: Abstract Blob */}
+                    <g transform="translate(360, 180)">
+                        <path d="M -20 0 Q 0 -30, 20 0 Q 30 20, 0 30 Q -30 20, -20 0" fill="#ff7675" opacity="0.8" />
+                        <circle cx="5" cy="5" r="5" fill="#fff" />
+                        <text x="0" y="50" textAnchor="middle" fill="#aaa" fontSize="10">GEN 2</text>
+                    </g>
+
+                    {/* Arrow */}
+                    <path d="M 400 180 L 430 180" stroke="#7c5ce7" strokeWidth="2" markerEnd="url(#arrow)" opacity="0.5" />
+
+                    {/* Step 4: Alien? */}
+                    <g transform="translate(470, 180)">
+                        <circle cx="0" cy="0" r="20" fill="#fab1a0" opacity="0.8" />
+                        <ellipse cx="0" cy="0" rx="25" ry="10" fill="#fab1a0" opacity="0.5" />
+                        <text x="0" y="50" textAnchor="middle" fill="#aaa" fontSize="10">RESULT</text>
+                    </g>
                 </g>
             );
 
-        case 7: // Bias Busters
+        case 8: // Infinite Craft Bingo
             return (
                 <g>
-                    {/* Scale / balance */}
-                    <line x1="240" y1="140" x2="400" y2="140" stroke="#7c5ce7" strokeWidth="3" opacity="0.6" />
-                    <rect x="310" y="140" width="20" height="100" rx="4" fill="#5b3fd1" opacity="0.5" />
-                    {/* Left pan (lower = biased) */}
-                    <path d="M 220 140 L 200 190 L 280 190 Z" fill="#ff6b6b" opacity="0.4" />
-                    <text x="240" y="180" textAnchor="middle" fill="#ff6b6b" fontSize="10" opacity="0.8">Biased</text>
-                    {/* Right pan (higher = fair) */}
-                    <path d="M 360 140 L 340 170 L 420 170 Z" fill="#51cf66" opacity="0.4" />
-                    <text x="380" y="163" textAnchor="middle" fill="#51cf66" fontSize="10" opacity="0.8">Fair</text>
-                    {/* Shield */}
-                    <text x="320" y="280" textAnchor="middle" fill="#7c5ce7" fontSize="36" opacity="0.3">🛡️</text>
-                </g>
-            );
+                    {/* Tech Grid Background */}
+                    <defs>
+                        <linearGradient id="bingo-gradient" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stopColor="#2d2b55" stopOpacity="0.6" />
+                            <stop offset="100%" stopColor="#1e1b2e" stopOpacity="0.8" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="200" y="80" width="240" height="240" rx="8" fill="url(#bingo-gradient)" stroke="#7c5ce7" strokeWidth="2" />
 
-        case 8: // AI Escape Room
-            return (
-                <g>
-                    {/* Key */}
-                    <text x="180" y="160" fill="#ffd43b" fontSize="40" opacity="0.5">🔑</text>
-                    {/* Lock */}
-                    <text x="410" y="200" fill="#7c5ce7" fontSize="44" opacity="0.4">🔒</text>
-                    {/* Puzzle pieces */}
-                    <rect x="270" y="130" width="40" height="40" rx="4" fill="#5b3fd1" opacity="0.3" transform="rotate(15, 290, 150)" />
-                    <rect x="310" y="160" width="40" height="40" rx="4" fill="#7c5ce7" opacity="0.3" transform="rotate(-10, 330, 180)" />
-                    <rect x="280" y="190" width="40" height="40" rx="4" fill="#5b3fd1" opacity="0.25" transform="rotate(5, 300, 210)" />
-                    {/* Clock */}
-                    <circle cx="320" cy="270" r="28" stroke="#ff6b6b" strokeWidth="2" fill="none" opacity="0.4" />
-                    <line x1="320" y1="270" x2="320" y2="252" stroke="#ff6b6b" strokeWidth="2" opacity="0.5" />
-                    <line x1="320" y1="270" x2="332" y2="270" stroke="#ff6b6b" strokeWidth="2" opacity="0.5" />
-                    <text x="320" y="310" textAnchor="middle" fill="#fff" fontSize="10" opacity="0.4">45:00</text>
+                    {/* Grid Lines */}
+                    <line x1="200" y1="160" x2="440" y2="160" stroke="#7c5ce7" strokeWidth="1" opacity="0.3" />
+                    <line x1="200" y1="240" x2="440" y2="240" stroke="#7c5ce7" strokeWidth="1" opacity="0.3" />
+                    <line x1="280" y1="80" x2="280" y2="320" stroke="#7c5ce7" strokeWidth="1" opacity="0.3" />
+                    <line x1="360" y1="80" x2="360" y2="320" stroke="#7c5ce7" strokeWidth="1" opacity="0.3" />
+
+                    {/* Winning highlight (Diagonal) */}
+                    <line x1="200" y1="80" x2="440" y2="320" stroke="#ffeaa7" strokeWidth="2" opacity="0.6" strokeDasharray="10,5" />
+
+                    {/* Element 1: Fire (Top Left) */}
+                    <g transform="translate(240, 120)">
+                        <path d="M 0 20 Q -15 20, -10 0 Q -5 -15, 0 -25 Q 5 -15, 10 0 Q 15 20, 0 20 Z" fill="#ff7675" opacity="0.9" />
+                        <path d="M 0 15 Q -8 15, -5 5 Q 0 -5, 0 -15 Q 0 -5, 5 5 Q 8 15, 0 15 Z" fill="#fab1a0" opacity="0.9" />
+                    </g>
+
+                    {/* Element 2: Water (Top Middle) */}
+                    <g transform="translate(320, 120)">
+                        <path d="M 0 -25 Q 15 0, 15 15 Q 15 30, 0 30 Q -15 30, -15 15 Q -15 0, 0 -25 Z" fill="#74b9ff" opacity="0.9" />
+                        <path d="M 5 5 Q 8 15, 2 20" stroke="#fff" strokeWidth="2" opacity="0.4" fill="none" />
+                    </g>
+
+                    {/* Element 3: Wind (Top Right) */}
+                    <g transform="translate(400, 120)">
+                        <path d="M -15 -10 Q 0 -20, 15 -10" stroke="#a29bfe" strokeWidth="3" fill="none" strokeLinecap="round" />
+                        <path d="M -20 0 Q 10 0, 20 10" stroke="#a29bfe" strokeWidth="3" fill="none" strokeLinecap="round" />
+                        <path d="M -15 15 Q 0 25, 15 10" stroke="#a29bfe" strokeWidth="3" fill="none" strokeLinecap="round" />
+                    </g>
+
+                    {/* Element 4: Earth (Center) */}
+                    <g transform="translate(320, 200)">
+                        <circle cx="0" cy="0" r="20" fill="#55efc4" opacity="0.9" />
+                        <path d="M -10 -5 Q 0 5, 15 -5" stroke="#00b894" strokeWidth="2" fill="none" opacity="0.6" />
+                        <path d="M -5 10 Q 5 15, 10 5" stroke="#00b894" strokeWidth="2" fill="none" opacity="0.6" />
+                    </g>
+
+                    {/* Element 5: Steam? (Bottom Right) */}
+                    <g transform="translate(400, 280)">
+                        <circle cx="-5" cy="-5" r="8" fill="#dfe6e9" opacity="0.7" />
+                        <circle cx="5" cy="5" r="10" fill="#dfe6e9" opacity="0.8" />
+                        <circle cx="8" cy="-5" r="6" fill="#dfe6e9" opacity="0.6" />
+                    </g>
+
+                    {/* "BINGO" Label */}
+                    <rect x="250" y="45" width="140" height="30" rx="4" fill="#2d2b55" stroke="#7c5ce7" />
+                    <text x="320" y="66" textAnchor="middle" fill="#fff" fontSize="16" fontWeight="bold" letterSpacing="3">BINGO</text>
                 </g>
             );
 
