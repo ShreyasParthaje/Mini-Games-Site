@@ -26,8 +26,8 @@ export default function EventIllustration({ eventId, title }: EventIllustrationP
                     <stop offset="100%" stopColor="#2a2a3a" />
                 </linearGradient>
                 <linearGradient id={`accent-${eventId}`} x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#7c5ce7" />
-                    <stop offset="100%" stopColor="#5b3fd1" />
+                    <stop offset="0%" stopColor="#0AEEFF" />
+                    <stop offset="100%" stopColor="#0A7EEF" />
                 </linearGradient>
             </defs>
             <rect width="640" height="360" fill={`url(#bg-${eventId})`} />
@@ -62,39 +62,39 @@ function getIllustration(eventId: number) {
                 <g>
                     <defs>
                         <radialGradient id="node-glow" cx="0.5" cy="0.5" r="0.5">
-                            <stop offset="0%" stopColor="#7c5ce7" stopOpacity="0.8" />
-                            <stop offset="100%" stopColor="#7c5ce7" stopOpacity="0" />
+                            <stop offset="0%" stopColor="#0AEEFF" stopOpacity="0.8" />
+                            <stop offset="100%" stopColor="#0AEEFF" stopOpacity="0" />
                         </radialGradient>
                     </defs>
                     {/* Neural network nodes and connections */}
                     {/* Layer 1 */}
-                    <circle cx="140" cy="120" r="18" fill="#5b3fd1" opacity="0.8" />
-                    <circle cx="140" cy="180" r="18" fill="#5b3fd1" opacity="0.8" />
-                    <circle cx="140" cy="240" r="18" fill="#5b3fd1" opacity="0.8" />
+                    <circle cx="140" cy="120" r="18" fill="#0A7EEF" opacity="0.8" />
+                    <circle cx="140" cy="180" r="18" fill="#0A7EEF" opacity="0.8" />
+                    <circle cx="140" cy="240" r="18" fill="#0A7EEF" opacity="0.8" />
                     {/* Layer 2 */}
-                    <circle cx="280" cy="140" r="22" fill="#7c5ce7" opacity="0.7" />
-                    <circle cx="280" cy="220" r="22" fill="#7c5ce7" opacity="0.7" />
+                    <circle cx="280" cy="140" r="22" fill="#0AEEFF" opacity="0.7" />
+                    <circle cx="280" cy="220" r="22" fill="#0AEEFF" opacity="0.7" />
                     {/* Layer 3 */}
-                    <circle cx="420" cy="120" r="20" fill="#5b3fd1" opacity="0.8" />
-                    <circle cx="420" cy="180" r="20" fill="#5b3fd1" opacity="0.8" />
-                    <circle cx="420" cy="240" r="20" fill="#5b3fd1" opacity="0.8" />
+                    <circle cx="420" cy="120" r="20" fill="#0A7EEF" opacity="0.8" />
+                    <circle cx="420" cy="180" r="20" fill="#0A7EEF" opacity="0.8" />
+                    <circle cx="420" cy="240" r="20" fill="#0A7EEF" opacity="0.8" />
                     {/* Output */}
-                    <circle cx="540" cy="180" r="24" fill="#7c5ce7" opacity="0.9" />
+                    <circle cx="540" cy="180" r="24" fill="#0AEEFF" opacity="0.9" />
                     <circle cx="540" cy="180" r="35" fill="url(#node-glow)" />
 
                     {/* Connections */}
                     {[120, 180, 240].map(y1 =>
                         [140, 220].map(y2 => (
-                            <line key={`1-${y1}-${y2}`} x1="158" y1={y1} x2="258" y2={y2} stroke="#7c5ce7" strokeWidth="1.5" opacity="0.25" />
+                            <line key={`1-${y1}-${y2}`} x1="158" y1={y1} x2="258" y2={y2} stroke="#0AEEFF" strokeWidth="1.5" opacity="0.25" />
                         ))
                     )}
                     {[140, 220].map(y1 =>
                         [120, 180, 240].map(y2 => (
-                            <line key={`2-${y1}-${y2}`} x1="302" y1={y1} x2="400" y2={y2} stroke="#7c5ce7" strokeWidth="1.5" opacity="0.25" />
+                            <line key={`2-${y1}-${y2}`} x1="302" y1={y1} x2="400" y2={y2} stroke="#0AEEFF" strokeWidth="1.5" opacity="0.25" />
                         ))
                     )}
                     {[120, 180, 240].map(y => (
-                        <line key={`3-${y}`} x1="440" y1={y} x2="516" y2={180} stroke="#7c5ce7" strokeWidth="1.5" opacity="0.25" />
+                        <line key={`3-${y}`} x1="440" y1={y} x2="516" y2={180} stroke="#0AEEFF" strokeWidth="1.5" opacity="0.25" />
                     ))}
                     {/* Labels */}
                     <text x="140" y="124" textAnchor="middle" fill="#fff" fontSize="11" fontWeight="600">IN (3)</text>
@@ -132,7 +132,7 @@ function getIllustration(eventId: number) {
                         <path d="M10,10 L50,80 M50,10 L10,80" stroke="#4a47a3" strokeWidth="2" opacity="0.5" />
                     </g>
 
-                    <text x="320" y="140" textAnchor="middle" fill="#7c5ce7" fontSize="18" fontWeight="700" letterSpacing="2">TRADE?</text>
+                    <text x="320" y="140" textAnchor="middle" fill="#0AEEFF" fontSize="18" fontWeight="700" letterSpacing="2">TRADE?</text>
                 </g>
             );
 
@@ -159,8 +159,8 @@ function getIllustration(eventId: number) {
                     <rect x="330" y="260" width="20" height="40" stroke="#0f0" strokeWidth="2" fill="none" />
 
                     {/* Analyzing Box */}
-                    <rect x="150" y="120" width="260" height="200" stroke="#7c5ce7" strokeWidth="2" fill="none" />
-                    <text x="160" y="140" fill="#7c5ce7" fontSize="14" fontFamily="monospace">DETECTED: ELEPHANT (94%)</text>
+                    <rect x="150" y="120" width="260" height="200" stroke="#0AEEFF" strokeWidth="2" fill="none" />
+                    <text x="160" y="140" fill="#0AEEFF" fontSize="14" fontFamily="monospace">DETECTED: ELEPHANT (94%)</text>
 
                     {/* Primitives Label */}
                     <text x="320" y="320" textAnchor="middle" fill="#aaa" fontSize="12">Primitives: 2 Rects, 1 Circle, 1 Path</text>
@@ -175,14 +175,14 @@ function getIllustration(eventId: number) {
 
                     {/* Text Lines */}
                     {/* Line 1 (Real) */}
-                    <rect x="200" y="90" width="240" height="10" rx="2" fill="#5b3fd1" opacity="0.7" />
+                    <rect x="200" y="90" width="240" height="10" rx="2" fill="#0A7EEF" opacity="0.7" />
                     {/* Line 2 (Real) */}
-                    <rect x="200" y="115" width="200" height="10" rx="2" fill="#5b3fd1" opacity="0.7" />
+                    <rect x="200" y="115" width="200" height="10" rx="2" fill="#0A7EEF" opacity="0.7" />
                     {/* Line 3 (Fake/Hallucination) */}
                     <rect x="200" y="140" width="220" height="10" rx="2" fill="#ff4757" opacity="0.8" />
                     <text x="435" y="149" fill="#ff4757" fontSize="14" fontWeight="bold">!</text>
                     {/* Line 4 (Real) */}
-                    <rect x="200" y="165" width="230" height="10" rx="2" fill="#5b3fd1" opacity="0.7" />
+                    <rect x="200" y="165" width="230" height="10" rx="2" fill="#0A7EEF" opacity="0.7" />
                     {/* Line 5 (Fake) */}
                     <rect x="200" y="190" width="180" height="10" rx="2" fill="#ff4757" opacity="0.8" />
                     <text x="395" y="199" fill="#ff4757" fontSize="14" fontWeight="bold">!</text>
@@ -230,7 +230,7 @@ function getIllustration(eventId: number) {
             return (
                 <g>
                     {/* Split Face Composition */}
-                    <line x1="320" y1="40" x2="320" y2="320" stroke="#7c5ce7" strokeWidth="2" strokeDasharray="10,10" opacity="0.5" />
+                    <line x1="320" y1="40" x2="320" y2="320" stroke="#0AEEFF" strokeWidth="2" strokeDasharray="10,10" opacity="0.5" />
 
                     {/* Left Side: Human Eye */}
                     <g transform="translate(220, 180)">
@@ -268,17 +268,17 @@ function getIllustration(eventId: number) {
                     </g>
 
                     {/* Arrow */}
-                    <path d="M 180 180 L 210 180" stroke="#7c5ce7" strokeWidth="2" markerEnd="url(#arrow)" opacity="0.5" />
+                    <path d="M 180 180 L 210 180" stroke="#0AEEFF" strokeWidth="2" markerEnd="url(#arrow)" opacity="0.5" />
 
                     {/* Step 2: Weird Cat */}
                     <g transform="translate(250, 180)">
-                        <path d="M -20 10 L -25 -15 L -5 -5 L 15 -5 L 30 -15 L 20 10 Z" fill="#a29bfe" opacity="0.8" />
-                        <rect x="-15" y="5" width="30" height="25" rx="5" fill="#a29bfe" opacity="0.8" />
+                        <path d="M -20 10 L -25 -15 L -5 -5 L 15 -5 L 30 -15 L 20 10 Z" fill="#00E5FF" opacity="0.8" />
+                        <rect x="-15" y="5" width="30" height="25" rx="5" fill="#00E5FF" opacity="0.8" />
                         <text x="0" y="50" textAnchor="middle" fill="#aaa" fontSize="10">GEN 1</text>
                     </g>
 
                     {/* Arrow */}
-                    <path d="M 290 180 L 320 180" stroke="#7c5ce7" strokeWidth="2" markerEnd="url(#arrow)" opacity="0.5" />
+                    <path d="M 290 180 L 320 180" stroke="#0AEEFF" strokeWidth="2" markerEnd="url(#arrow)" opacity="0.5" />
 
                     {/* Step 3: Abstract Blob */}
                     <g transform="translate(360, 180)">
@@ -288,7 +288,7 @@ function getIllustration(eventId: number) {
                     </g>
 
                     {/* Arrow */}
-                    <path d="M 400 180 L 430 180" stroke="#7c5ce7" strokeWidth="2" markerEnd="url(#arrow)" opacity="0.5" />
+                    <path d="M 400 180 L 430 180" stroke="#0AEEFF" strokeWidth="2" markerEnd="url(#arrow)" opacity="0.5" />
 
                     {/* Step 4: Alien? */}
                     <g transform="translate(470, 180)">
@@ -309,13 +309,13 @@ function getIllustration(eventId: number) {
                             <stop offset="100%" stopColor="#1e1b2e" stopOpacity="0.8" />
                         </linearGradient>
                     </defs>
-                    <rect x="200" y="80" width="240" height="240" rx="8" fill="url(#bingo-gradient)" stroke="#7c5ce7" strokeWidth="2" />
+                    <rect x="200" y="80" width="240" height="240" rx="8" fill="url(#bingo-gradient)" stroke="#0AEEFF" strokeWidth="2" />
 
                     {/* Grid Lines */}
-                    <line x1="200" y1="160" x2="440" y2="160" stroke="#7c5ce7" strokeWidth="1" opacity="0.3" />
-                    <line x1="200" y1="240" x2="440" y2="240" stroke="#7c5ce7" strokeWidth="1" opacity="0.3" />
-                    <line x1="280" y1="80" x2="280" y2="320" stroke="#7c5ce7" strokeWidth="1" opacity="0.3" />
-                    <line x1="360" y1="80" x2="360" y2="320" stroke="#7c5ce7" strokeWidth="1" opacity="0.3" />
+                    <line x1="200" y1="160" x2="440" y2="160" stroke="#0AEEFF" strokeWidth="1" opacity="0.3" />
+                    <line x1="200" y1="240" x2="440" y2="240" stroke="#0AEEFF" strokeWidth="1" opacity="0.3" />
+                    <line x1="280" y1="80" x2="280" y2="320" stroke="#0AEEFF" strokeWidth="1" opacity="0.3" />
+                    <line x1="360" y1="80" x2="360" y2="320" stroke="#0AEEFF" strokeWidth="1" opacity="0.3" />
 
                     {/* Winning highlight (Diagonal) */}
                     <line x1="200" y1="80" x2="440" y2="320" stroke="#ffeaa7" strokeWidth="2" opacity="0.6" strokeDasharray="10,5" />
@@ -334,9 +334,9 @@ function getIllustration(eventId: number) {
 
                     {/* Element 3: Wind (Top Right) */}
                     <g transform="translate(400, 120)">
-                        <path d="M -15 -10 Q 0 -20, 15 -10" stroke="#a29bfe" strokeWidth="3" fill="none" strokeLinecap="round" />
-                        <path d="M -20 0 Q 10 0, 20 10" stroke="#a29bfe" strokeWidth="3" fill="none" strokeLinecap="round" />
-                        <path d="M -15 15 Q 0 25, 15 10" stroke="#a29bfe" strokeWidth="3" fill="none" strokeLinecap="round" />
+                        <path d="M -15 -10 Q 0 -20, 15 -10" stroke="#00E5FF" strokeWidth="3" fill="none" strokeLinecap="round" />
+                        <path d="M -20 0 Q 10 0, 20 10" stroke="#00E5FF" strokeWidth="3" fill="none" strokeLinecap="round" />
+                        <path d="M -15 15 Q 0 25, 15 10" stroke="#00E5FF" strokeWidth="3" fill="none" strokeLinecap="round" />
                     </g>
 
                     {/* Element 4: Earth (Center) */}
@@ -354,7 +354,7 @@ function getIllustration(eventId: number) {
                     </g>
 
                     {/* "BINGO" Label */}
-                    <rect x="250" y="45" width="140" height="30" rx="4" fill="#2d2b55" stroke="#7c5ce7" />
+                    <rect x="250" y="45" width="140" height="30" rx="4" fill="#2d2b55" stroke="#0AEEFF" />
                     <text x="320" y="66" textAnchor="middle" fill="#fff" fontSize="16" fontWeight="bold" letterSpacing="3">BINGO</text>
                 </g>
             );

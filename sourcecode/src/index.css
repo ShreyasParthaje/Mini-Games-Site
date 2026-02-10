@@ -5,9 +5,9 @@
 /* --- CSS Custom Properties --- */
 :root {
   /* Colors — Primary (from design doc) */
-  --primary-600: #7c5cff;
-  --primary-700: #6b4ce6;
-  --primary-800: #5a3ccc;
+  --primary-600: #0AEEFF;
+  --primary-700: #00E5FF;
+  --primary-800: #0A7EEF;
 
   /* Colors — Neutral (Dark Theme from design doc) */
   --neutral-50: #0a0a0a;       /* Page background (darkest) */
@@ -143,8 +143,8 @@ h1, h2, h3, h4, h5, h6 {
   left: 16px;
   z-index: 1000;
   padding: 12px 24px;
-  background: #7c5cff;
-  color: #ffffff;
+  background: #0AEEFF;
+  color: #353535;
   border-radius: 6px;
   font-weight: 600;
   font-size: 14px;

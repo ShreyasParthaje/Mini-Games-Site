@@ -150,9 +150,10 @@ Each event card includes:
 - **Background**: Very dark gray (#1a1a1f or similar)
 - **Card Background**: Dark gray (#3d3d4a)
 - **Image Placeholder**: Darker gray (#2a2a30)
-- **Primary Accent**: Vibrant purple/blue (#5b4cff)
+- **Primary Accent**: Vibrant cyan (#0AEEFF)
 - **Text Primary**: White (#ffffff)
 - **Text Secondary**: Light gray (#b0b0b0)
+- **Button Text**: Dark gray (#353535) - for contrast with cyan background
 
 ### Interactive States
 - **Hover**: 10% lighter/darker shade of base color

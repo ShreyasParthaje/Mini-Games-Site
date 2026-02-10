@@ -71,7 +71,7 @@
 .hero__title {
   font-size: 56px;
   font-weight: 700;
-  background: linear-gradient(135deg, #7c5cff, #6b4ce6, #5a3ccc);
+  background: linear-gradient(135deg, #00FFFF, #0A7EEF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -272,7 +272,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #7c5cff;
+  color: #0AEEFF;
   margin-bottom: 8px;
   display: block;
 }
@@ -297,8 +297,8 @@
   gap: 8px;
   width: 100%;
   padding: 12px 24px;
-  background-color: #7c5cff;
-  color: #ffffff;
+  background-color: #0AEEFF;
+  color: #353535;
   font-size: 15px;
   font-weight: 500;
   border-radius: 6px;
@@ -312,18 +312,18 @@
 }
 
 .event-card__cta:hover {
-  background-color: #6b4ce6;
+  background-color: #00E5FF;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(123, 92, 255, 0.35);
+  box-shadow: 0 4px 8px rgba(10, 238, 255, 0.35);
 }
 
 .event-card__cta:active {
-  background-color: #5a3ccc;
+  background-color: #0A7EEF;
   transform: translateY(0);
 }
 
 .event-card__cta:focus-visible {
-  outline: 2px solid #7c5cff;
+  outline: 2px solid #0AEEFF;
   outline-offset: 2px;
 }
 
@@ -408,7 +408,7 @@
 }
 
 .modal__close:focus-visible {
-  outline: 2px solid #7c5cff;
+  outline: 2px solid #0AEEFF;
   outline-offset: 2px;
 }
 
@@ -451,7 +451,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #7c5cff;
+  color: #0AEEFF;
   margin-bottom: 12px;
   padding-bottom: 8px;
   border-bottom: 1px solid #333333;
@@ -476,7 +476,7 @@
 }
 
 .modal__list li::marker {
-  color: #7c5cff;
+  color: #0AEEFF;
 }
 
 .modal__meta {

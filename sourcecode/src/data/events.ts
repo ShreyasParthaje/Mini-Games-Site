@@ -93,23 +93,18 @@ export const events: EventData[] = [
   },
   {
     id: 4,
-    title: 'Hallucination Detective',
-    brief:
-      'An AI has written a story mixing real facts with fake details. Find the hallucinations.',
-    detailed:
-      'An AI has written a story mixing real facts with fake details. Find the hallucinations.',
+    title: 'Truth Sleuth',
+    brief: 'The mischievous AI states 4 facts of which 3 are truth and 1 is a lie. The participants will have to figure out which is the lie.',
+    detailed: 'The mischievous AI states 4 facts of which 3 are truth and 1 is a lie. The participants will have to figure out which is the lie.',
     image: '',
     teamSize: '3-5',
     rules: [
-      'Volunteer presents an AI-generated story about a real historical event, scientific topic, or well-known subject',
-      'The story contains exactly 5 fake details (hallucinations) cleverly mixed with real facts',
-      'Team reads the story together (displayed or read aloud)',
-      'Team has 5 minutes to discuss and debate which details are hallucinations',
-      'Must reach consensus and mark exactly 5 suspected hallucinations',
-      'Volunteer reveals which details were actually fake and scores the team',
+      'Only 1 attempt of 10 questions per team',
+      'Total of 10 questions',
+      '+10 for correct answer, 0 for wrong answer'
     ],
     judgingCriteria: [
-      'Correctly identify at least 3 out of 5 hallucinations',
+      'Team with maximum number of points wins the game',
     ],
   },
   {
