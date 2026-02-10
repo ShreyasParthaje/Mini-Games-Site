@@ -9,7 +9,7 @@ export default function HeroSection() {
                 className="hero__logo-corner"
             />
             <div className="container">
-                <h1 className="hero__title">Event Descriptions</h1>
+                <h1 className="hero__title">Pebble's play time</h1>
                 <p className="hero__subtitle">
                     Decode the future. Join Enigma for a series of cryptic challenges,
                     high-stakes competitions, and deep-dive workshops into the world of

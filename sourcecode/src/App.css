@@ -58,12 +58,16 @@
 }
 
 .hero__title {
-  font-size: 36px;
+  font-size: 56px;
   font-weight: 700;
-  color: #e0e0e0;
+  background: linear-gradient(135deg, #7c5cff, #6b4ce6, #5a3ccc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 16px;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   margin-top: 16px;
+  line-height: 1.2;
   /* Added spacing since logo is gone from flow */
 }
 
@@ -75,6 +79,29 @@
   line-height: 1.6;
 }
 
+/* Optional: Animated gradient for enhanced visual effect */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero__title--animated {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* Tablet breakpoint (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero__title {
+    font-size: 48px;
+  }
+}
+
+/* Mobile breakpoint */
 @media (max-width: 767px) {
   .hero {
     padding: 40px 0;
@@ -87,7 +114,7 @@
   }
 
   .hero__title {
-    font-size: 32px;
+    font-size: 36px;
   }
 
   .hero__subtitle {

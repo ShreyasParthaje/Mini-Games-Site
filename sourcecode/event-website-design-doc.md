@@ -373,6 +373,56 @@ outline-offset: 2px
 - Padding: 64px top/bottom (desktop), 40px (mobile)
 - Text color: #e0e0e0
 
+### Hero Title Font Sizing
+
+**Primary Title (H1 "Pebble's play time")**
+- Desktop font size: 56px
+- Tablet font size: 48px
+- Mobile font size: 36px
+- Font weight: 700 (bold)
+- Line height: 1.2
+- Letter spacing: -0.02em (optional, for tighter spacing on large text)
+
+This is significantly larger than the standard page title to create visual emphasis and immediately capture user attention.
+
+### Hero Title Gradient
+
+**Primary Title (H1 "Pebble's play time")**
+- Effect: Linear gradient background with background-clip to text
+- Gradient direction: 135deg (top-left to bottom-right)
+- Gradient colors: 
+  - Start: #7c5cff (Primary accent purple)
+  - Middle: #6b4ce6 (Primary-700)
+  - End: #5a3ccc (Primary-800)
+
+**CSS Implementation:**
+```css
+.hero__title {
+  background: linear-gradient(135deg, #7c5cff, #6b4ce6, #5a3ccc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+}
+
+/* Optional: Animated gradient for enhanced visual effect */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero__title--animated {
+  animation: gradientShift 6s ease infinite;
+}
+```
+
+**Alternative Static Gradient:**
+If animation is not desired, use the static version without animation keyframes. The gradient will remain fixed at the 135deg angle with smooth purple transitions suited to the dark theme.
+
 ---
 
 ## 14. Accessibility Requirements
